@@ -2,14 +2,18 @@
 
 Personal electronics project; Attempting to build a modern PDA clamshell computer in a likeness of the venerable Psion 5mx.
 
+![Knolling hard!](posterity/progress-1.jpg)
+
 ![created by readme-kanban-board](http://i.imgur.com/hrjrRvy.png)
 <!---KANBAN
 # To Do
 - Battery protected/stepped-up/hooked up
+- Battery level (physical or reported to Pi, ie. via lipo fuel gauge)
 - Case build
 - Keyboard interface
 - Port extensions
 - PCB design/etching as needed
+- Wireless charging if room
 
 # In Progress
 - LCD screen hooked up
@@ -32,7 +36,7 @@ KANBAN--->
 - Charging circuity and steps ups with protection - So I don't blow myself up.
 - Raspberry Pi Zero W (1.1)
 - Psion 5mx keyboard - What? No way! Yes way. **Yes frickin way**.
-- Keyboard USB interface - Arduino, hand-built.
+- Keyboard USB interface - Arduino or ESP8266, hand-built.
 - 7" Capacitive Touchscreen LCD 1024*600 (Waveshare C Rev2.1)
 - Mad efficient 1337 OS and warez, legit IDE, etc - We'll start with vanilla Raspbian first though.
 
