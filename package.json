@@ -1,0 +1,22 @@
+{
+    "name": "psion-pi",
+    "version": "1.0.0",
+    "description": "Personal electronics project; Attempting to build a modern PDA clamshell computer in a likeness of the venerable Psion 5mx.",
+    "main": "index.js",
+    "scripts": {
+        "readme-kanban-board": "readme-kanban-board"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/entozoon/psion-pi.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/entozoon/psion-pi/issues"
+    },
+    "homepage": "https://github.com/entozoon/psion-pi#readme",
+    "dependencies": {
+        "readme-kanban-board": "^1.3.5"
+    }
+}
