@@ -48,6 +48,46 @@ Raspbian Stretch (2017-08-16) did **not** work, no matter what.
 
 Raspbian Jessie (2017-07-05) did though, [available here](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)
 
-Installed on a 16gb Kingston microSD with win32diskImager (or similar) then, *before removing*, (in the windows partition, or /boot on unix):
+Installed on a 16gb Kingston microSD with win32diskImager (or similar) then, *before removing*, (in the windows partition, or `/boot` on unix):
 1. Create a blank file called `ssh` on it.
-2.
+2. Create `wpa_supplicant.conf` containing:
+```bash
+country=US
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+ ssid="NetworkName"
+ scan_ssid=1
+ psk="yourpassword"
+ key_mgmt=WPA-PSK
+}
+```
+3. Safely eject (they can become corrupt, trust)
+4. Pop it in the Pi with HDMI and a keyboard; let it do its thing.
+
+Any screen problems and it should still be SSH-able.
+
+### LCD screen (specifically the 7" Waveshare mentioned above)
+
+Either copy the `config.txt` in this repo, or bosh this stuff into yours (in windows partition or `/boot` on unix):
+```bash
+# Add support for Waveshare 7" capacitive Touch (C) v2.1
+# set current over USB to 1.2A
+max_usb_current=1
+
+# overscan to adjust image position
+overscan_left=0
+overscan_right=0
+overscan_top=0
+overscan_bottom=0
+
+# HDMI config
+hdmi_drive=1
+hdmi_ignore_edid=0xa5000080
+hdmi_group=2
+hdmi_mode=87
+
+# 1024x600 display
+hdmi_cvt=1024 600 60 3 0 0 0
+```
