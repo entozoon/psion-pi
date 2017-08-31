@@ -93,5 +93,5 @@ hdmi_group=2
 hdmi_mode=87
 
 # 1024x600 display
-hdmi_cvt=1024 600 60 3 0 0 0
+hdmi_cvt=1024 600 60 6 0 0 0
 ```
