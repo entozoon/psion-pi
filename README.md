@@ -4,7 +4,7 @@ Personal electronics project; Attempting to build a modern PDA clamshell compute
 
 ![Knolling hard!](posterity/progress-1.jpg)
 
-![created by readme-kanban-board](http://i.imgur.com/hrjrRvy.png)
+![created by readme-kanban-board](http://i.imgur.com/KSKtnzP.jpg)
 <!---KANBAN
 # To Do
 - Battery protected/stepped-up/hooked up
