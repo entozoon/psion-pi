@@ -44,7 +44,7 @@ KANBAN--->
 
 Notes about how I set everything up for reference, config files, microcontroller code for keyboard interface, etc etc.
 
-### Setting up the Pi
+## Setting up the Pi
 
 I had more problems with the Zero W than any other Pi, even sent one back. Probably just batch teething problems but anyway..
 
@@ -95,3 +95,11 @@ hdmi_mode=87
 # 1024x600 display
 hdmi_cvt=1024 600 60 6 0 0 0
 ```
+
+
+## Power Usage
+
+| Component | Usage (Amps) |
+|:---------:| ------------ |
+| Pi Zero W | 0.3          |
+| 7" Screen | 0.7+         |

@@ -71,7 +71,7 @@ hdmi_cvt=1024 600 60 6 0 0 0
 #dtparam=spi=on
 
 # Uncomment this to enable the lirc-rpi module
-#dtoverlay=lirc-rpi
+dtoverlay=lirc-rpi
 
 # Additional overlays and parameters are documented /boot/overlays/README
 
