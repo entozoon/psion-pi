@@ -99,7 +99,7 @@ hdmi_cvt=1024 600 60 6 0 0 0
 
 ## Power Usage
 
-| Component | Usage (Amps) |
-|:---------:| ------------ |
-| Pi Zero W | 0.3          |
-| 7" Screen | 0.7+         |
+| Component | Usage (Amps +/- 0.05) |
+|:---------:| --------------------- |
+| Pi Zero W | 0.3                   |
+| 7" Screen | 0.45                  |
