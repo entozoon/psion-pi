@@ -4,7 +4,7 @@ Personal electronics project; Attempting to build a modern PDA clamshell compute
 
 ![Knolling hard!](posterity/progress-1.jpg)
 
-![created by readme-kanban-board](http://i.imgur.com/KSKtnzP.jpg)
+![created by readme-kanban-board](./kanban.png)
 <!---KANBAN
 # To Do
 - Battery protected/stepped-up/hooked up
@@ -16,11 +16,15 @@ Personal electronics project; Attempting to build a modern PDA clamshell compute
 - Wireless charging if room
 
 # In Progress
-- LCD screen hooked up
+- Power converters
+- Powered USB hub PCB
 
 # Done
 - Bootable Pi
 - Battery build
+- LCD screen
+- Touch screen
+- Figure power requirements
 KANBAN--->
 
 ## Aims

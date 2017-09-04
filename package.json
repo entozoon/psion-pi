@@ -17,6 +17,6 @@
     },
     "homepage": "https://github.com/entozoon/psion-pi#readme",
     "dependencies": {
-        "readme-kanban-board": "^1.3.5"
+        "readme-kanban-board": "^1.4.0"
     }
 }
