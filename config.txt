@@ -18,7 +18,8 @@ hdmi_mode=87
 hdmi_cvt=1024 600 60 6 0 0 0
 
 #
-# This came from Raspbian Jessie (2017-07-05):
+# This came from Raspbian Jessie  (2017-07-05),
+# and is same as Raspbian Stretch (2017-08-16):
 #
 
 # For more options and information see
@@ -71,7 +72,7 @@ hdmi_cvt=1024 600 60 6 0 0 0
 #dtparam=spi=on
 
 # Uncomment this to enable the lirc-rpi module
-dtoverlay=lirc-rpi
+#dtoverlay=lirc-rpi
 
 # Additional overlays and parameters are documented /boot/overlays/README
 
