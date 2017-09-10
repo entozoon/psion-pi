@@ -1,21 +1,26 @@
-# Add support for Waveshare 7" capacitive Touch (C) v2.1
-# set current over USB to 1.2A
+# Add support for Waveshare 5" resistive Touch (A, not B)
+# Actually, a cheaper 'Elegoo' version.
 max_usb_current=1
-
-# overscan to adjust image position
-overscan_left=0
-overscan_right=0
-overscan_top=0
-overscan_bottom=0
-
-# HDMI config
-hdmi_drive=1
-hdmi_ignore_edid=0xa5000080
 hdmi_group=2
 hdmi_mode=87
+hdmi_cvt 800 480 60 6 0 0 0
+hdmi_drive=1
 
-# 1024x600 display
-hdmi_cvt=1024 600 60 6 0 0 0
+# # Add support for Waveshare 7" capacitive Touch (C) v2.1
+# # set current over USB to 1.2A
+# max_usb_current=1
+# # overscan to adjust image position
+# overscan_left=0
+# overscan_right=0
+# overscan_top=0
+# overscan_bottom=0
+# # HDMI config
+# hdmi_drive=1
+# hdmi_ignore_edid=0xa5000080
+# hdmi_group=2
+# hdmi_mode=87
+# # 1024x600 display
+# hdmi_cvt=1024 600 60 6 0 0 0
 
 #
 # This came from Raspbian Jessie  (2017-07-05),

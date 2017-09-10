@@ -109,3 +109,17 @@ hdmi_cvt=1024 600 60 6 0 0 0
 | Pi 3      | 0.3  (idling)         |
 | 7" Screen | 0.6                   |
 | Total     | 0.9                   |
+
+
+## Update - Using a 5" model A screen instead
+Elegoo, a cheaper version of Wavershare model A (not B)
+
+```bash
+cd ~
+wget https://github.com/entozoon/psion-pi/raw/master/lib/LCD-show-170703.tar.gz
+tar xzvf *.tar.gz
+rm *.tar.gz
+cd LCD-show/
+chmod +x LCD5-show
+./LCD5-show
+```
