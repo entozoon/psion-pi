@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="299.86mm" height="269.88mm" viewBox="0 0 850 765">
+  <title>FFC 24 Pin Breakout Adaptor_export_non-respons-inline</title>
+  <g id="Layer_1" data-name="Layer 1">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g>
+        <rect x="0.5" y="0.5" width="849" height="764" style="fill: #176900"/>
+        <path d="M849,1V764H1V1H849m1-1H0V765H850V0Z" transform="translate(0 0)"/>
+      </g>
+    </g>
+  </g>
+  <g id="test">
+    <ellipse cx="403.82" cy="277.32" rx="192.02" ry="105.18" style="fill: aqua"/>
+  </g>
+  <g id="Layer_3" data-name="Layer 3">
+    <circle cx="80.57" cy="58.9" r="22.5" style="fill: #9c936e;stroke: #000;stroke-miterlimit: 10"/>
+    <ellipse cx="425" cy="422.84" rx="40.5" ry="145.51" style="fill: #8e8f8e;stroke: #000;stroke-miterlimit: 10"/>
+  </g>
+</svg>
