@@ -1,0 +1,17 @@
+{
+  "name": "keyboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sftp-node": "0.0.7",
+    "sftp-upload": "^1.0.0",
+    "ssh2": "^0.5.5",
+    "ssh2-streams": "^0.1.20"
+  }
+}

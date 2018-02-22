@@ -1,0 +1,20 @@
+{
+  "remotePath": "/home/pi/keyboard",
+  "host": "192.168.0.53",
+  "username": "pi",
+  "password": "raspberry",
+  "port": 22,
+  "secure": false,
+  "protocol": "ftp",
+  "uploadOnSave": true,
+  "passive": false,
+  "debug": false,
+  "privateKeyPath": null,
+  "passphrase": null,
+  "ignore": ["\\.vscode", "\\.git", "\\.DS_Store"],
+  "generatedFiles": {
+    "uploadOnSave": false,
+    "extensionsToInclude": [],
+    "path": ""
+  }
+}
