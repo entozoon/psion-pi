@@ -59,7 +59,12 @@ Raspbian Jessie (2017-07-05) did though, [available here](https://downloads.rasp
 
 Installed on a 16gb Kingston microSD with win32diskImager (or similar) then, _before removing_, (in the windows partition, or `/boot` on unix):
 
-1. Create a blank file called `ssh` on it.
+1. Create a blank file called `ssh` on it, e.g.
+```bash
+cd /d h:
+echo > ssh
+```
+
 2. Create `wpa_supplicant.conf` containing:
 
 ```bash
