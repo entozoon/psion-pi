@@ -4,6 +4,10 @@ Personal electronics project; Attempting to build a modern PDA clamshell compute
 
 ![Knolling hard!](posterity/progress-1.jpg)
 
+4 years into this project, some significant changes, namely wide screen, HP Jornada keyboard and Pi Zero 2 W (significantly more capable.. the previous Zero put me off)
+
+![4 years later..](posterity/progress-2.jpg)
+
 ![created by readme-kanban-board](./kanban.png)
 
 <!---KANBAN
@@ -30,20 +34,20 @@ KANBAN--->
 
 ## Aims
 
-* Tasty colour screen - For enjoyable video playback.
-* Quality keyboard - So it's legitimately useful.
-* Portability - I'm under no illusions that it'll be larger than a Psion 5mx/Jornada (as would be ideal) because of screen size and battery demands but if it's smaller than a Netbook Pro I'll be happy.
-* Sturdiness - Every single bit will be inherently fragile as heck, so I need to 3D print the structure real good.
+- Tasty colour screen - For enjoyable video playback.
+- Quality keyboard - So it's legitimately useful.
+- Portability - I'm under no illusions that it'll be larger than a Psion 5mx/Jornada (as would be ideal) because of screen size and battery demands but if it's smaller than a Netbook Pro I'll be happy.
+- Sturdiness - Every single bit will be inherently fragile as heck, so I need to 3D print the structure real good.
 
 ## Ingredients
 
-* Battery pack (18650 2S parallel 3.7v) - Home-made li-ion for the win!
-* Charging circuity and steps ups with protection - So I don't blow myself up.
-* Raspberry Pi Zero W (1.1)
-* Psion 5mx keyboard - What? No way! Yes way. **Yes frickin way**.
-* Keyboard USB interface - Arduino or ESP8266, hand-built.
-* 7" Capacitive Touchscreen LCD 1024\*600 (Waveshare C Rev2.1)
-* Mad efficient 1337 OS and warez, legit IDE, etc - We'll start with vanilla Raspbian first though.
+- Battery pack (18650 2S parallel 3.7v) - Home-made li-ion for the win!
+- Charging circuity and steps ups with protection - So I don't blow myself up.
+- Raspberry Pi Zero W (1.1)
+- Psion 5mx keyboard - What? No way! Yes way. **Yes frickin way**.
+- Keyboard USB interface - Arduino or ESP8266, hand-built.
+- 7" Capacitive Touchscreen LCD 1024\*600 (Waveshare C Rev2.1)
+- Mad efficient 1337 OS and warez, legit IDE, etc - We'll start with vanilla Raspbian first though.
 
 ## "Wait, so what's this repo even for then?"
 
@@ -60,6 +64,7 @@ Raspbian Jessie (2017-07-05) did though, [available here](https://downloads.rasp
 Installed on a 16gb Kingston microSD with win32diskImager (or similar) then, _before removing_, (in the windows partition, or `/boot` on unix):
 
 1. Create a blank file called `ssh` on it, e.g.
+
 ```bash
 cd /d h:
 echo > ssh
@@ -85,66 +90,127 @@ network={
 
 Any screen problems and it should still be SSH-able.
 
-### LCD screen (specifically the 7" Waveshare mentioned above)
+## LCD Screen - 7.9" Waveshare Widescreen 400×1280
 
-Either copy the `config.txt` in this repo, or bosh this stuff into yours (in windows partition or `/boot` on unix):
+### `config.txt` append:
 
 ```bash
-# Add support for Waveshare 7" capacitive Touch (C) v2.1
-# set current over USB to 1.2A
+# Add support for 7.9" Waveshare LCD
 max_usb_current=1
-
-# overscan to adjust image position
-overscan_left=0
-overscan_right=0
-overscan_top=0
-overscan_bottom=0
-
-# HDMI config
-hdmi_drive=1
-hdmi_ignore_edid=0xa5000080
 hdmi_group=2
 hdmi_mode=87
-
-# 1024x600 display
-hdmi_cvt=1024 600 60 6 0 0 0
+hdmi_timings=400 0 100 10 140 1280 10 20 20 2 0 0 0 60 0 43000000 3
 ```
+
+### Rotate
+
+DO NOT DO THIS:
+`config.txt` comment line and add, a la:
+
+```bash
+# disable advanced graphics just for termianl rotation, NOPE
+#dtoverlay=vc4-kms-v3d
+display_rotate=3 # 1: 90°; 2: 180°C; 3: 270°
+```
+
+This is essentially disabling advanced graphics on the Pi, which is necessary to rotate the headless terminal (only!).
+
+I'll probs use it exclusively in desktop mode, so...
+
+```bash
+sudo nano /usr/share/X11/xorg.conf.d/99-fbturbo.conf
+```
+
+Comment out the line, a la:
+
+```
+#       Driver          "fbturbo"
+```
+
+Note: `display_rotate` will not work after this point so you have to set orientation (left) in raspbian preferences.
+
+## Touch Setup
+
+```bash
+sudo apt-get install xserver-xorg-input-libinput
+sudo mkdir /etc/X11/xorg.conf.d
+sudo cp /usr/share/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/
+sudo nano /etc/X11/xorg.conf.d/40-libinput.conf
+```
+
+Find the touchscreen section and add _one of_ the following lines, a la:
+
+```bash
+Section "InputClass"
+        Identifier "libinput touchscreen catchall"
+        MatchIsTouchscreen "on"
+        # Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1" # mykemod
+        # Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1" # mykemod 90 deg
+        # Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1" # mykemod 180 deg
+        Option "CalibrationMatrix" "0 -1 1 1 0 0 0 0 1" # mykemod 270 deg
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+EndSection
+```
+
+Note: It's also orientated by long-pressing the 'rotate touch' button on the screen so not sure how necessary this is.
+
+## Brightness
+
+Powers happily from the touch USB input \*\*\*\*
+5 Settings, long press on/off on screen:
+1 0.15A
+2 0.16A
+3 0.17A
+4 0.19A
+5 0.2A
+
+## Overclock
+
+Make sure to use a heat sink! A fan would let us go up to 1.4ghz
+
+```bash
+sudo nano /boot/config.txt
+```
+
+```
+# Overclock 1.2ghz (all values typically unset)
+arm_freq=1300 # 700 default
+over_voltage=3
+# Riskier, needs more POWAR
+core_freq=515 # 500 default
+gpu_freq=550 # 550 with heatsink, 530 without
+```
+
+## Other settings
+
+Disable dimming, etc
+https://www.waveshare.com/wiki/7.9inch_HDMI_LCD
 
 ## Power Usage
 
-| Component | Usage (Amps +/- 0.05) |
-| --------: | --------------------- |
-| Pi Zero W | 0.15 (unused)         |
-|      Pi 3 | 0.3 (idling)          |
-| 7" Screen | 0.6                   |
-|     Total | 0.9                   |
+|                 Component | Usage (Amps +/- 0.05) |
+| ------------------------: | --------------------- |
+|                 Pi Zero W | 0.15 (unused)         |
+|                      Pi 3 | 0.3 (idling)          |
+|               Pi Zero 2 W | 0.3                   |
+|                           |                       |
+| Pi Zero 2 W (Overclocked) | 0.45                  |
+|               7.9" Screen | 0.65                  |
+|                     Total | 1.1                   |
 
-## Update - Using a 5" model A screen instead
-
-Elegoo, a cheaper version of Wavershare model A (not B)
-
-```bash
-cd ~
-wget https://github.com/entozoon/psion-pi/raw/master/lib/LCD-show-170703.tar.gz
-tar xzvf *.tar.gz
-rm *.tar.gz
-cd LCD-show/
-chmod +x LCD5-show
-./LCD5-show
-```
-
-### Update - Using a 3.5" - A quick attempt for similar project
-
-Raspbian Stretch (2017-11-29)
+Battery life estimates (conservative too!:
+18650 x 1 (2500mah) = 2h 15m
+18650 x 3 (7500mah) = 6h 45m
 
 ## Keyboard
 
 Dell Axim X5 Foldable Keyboard - what a hero of a warlock of a battlemage of a keyboard!
 Disassembling it revealed it only has three IO:
 
-* 3.3V in
-* GND
-* Data out
+- 3.3V in
+- GND
+- Data out
   Hooking that all up to a USB FTDI (data => RX), reveals some useful output with the following settings (e.g. in RealTerm):
   Port -> Baud: 4800
   Display -> Display As: Hex
@@ -178,3 +244,48 @@ This wonderous diagram is courtesy of [Gavin Whelan](https://ambientmemory.com/)
     | 02fd || 14eb || 07f8 || 708f ||           5ca3               || 11ee || 738c || 6699 || 5ea1 || 609f || 2fd0 |
     |      ||      ||      ||      ||                              ||      ||      ||      ||      ||  v   ||      |
     |------||------||------||------||------------------------------||------||------||------||------||------||------|
+
+## OBSOLETE: Previous LCD screen attempts
+
+### 7" Waveshare
+
+Either copy the `config.txt` in this repo, or bosh this stuff into yours (in windows partition or `/boot` on unix):
+
+```bash
+# Add support for Waveshare 7" capacitive Touch (C) v2.1
+# set current over USB to 1.2A
+max_usb_current=1
+
+# overscan to adjust image position
+overscan_left=0
+overscan_right=0
+overscan_top=0
+overscan_bottom=0
+
+# HDMI config
+hdmi_drive=1
+hdmi_ignore_edid=0xa5000080
+hdmi_group=2
+hdmi_mode=87
+
+# 1024x600 display
+hdmi_cvt=1024 600 60 6 0 0 0
+```
+
+### 5" model A screen
+
+Elegoo, a cheaper version of Wavershare model A (not B)
+
+```bash
+cd ~
+wget https://github.com/entozoon/psion-pi/raw/master/lib/LCD-show-170703.tar.gz
+tar xzvf *.tar.gz
+rm *.tar.gz
+cd LCD-show/
+chmod +x LCD5-show
+./LCD5-show
+```
+
+### 3.5"
+
+Raspbian Stretch (2017-11-29)
