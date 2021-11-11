@@ -167,7 +167,7 @@ Powers happily from the touch USB input \*\*\*\*
 
 ## Overclock
 
-Make sure to use a heat sink! A fan would let us go up to 1.4ghz
+Make sure to use a heat sink! A fan would let us go up to 1.4ghz. If it freezes, the overclocking is too high.
 
 ```bash
 sudo nano /boot/config.txt
@@ -175,12 +175,15 @@ sudo nano /boot/config.txt
 
 ```
 # Overclock 1.2ghz (all values typically unset)
-arm_freq=1300 # 700 default
-over_voltage=3
+arm_freq=1200 # 700 default
+over_voltage=4
 # Riskier, needs more POWAR
 core_freq=515 # 500 default
 gpu_freq=550 # 550 with heatsink, 530 without
 ```
+
+UPDATE: Sacking this off. so laggy..
+and in fact, the whole thing is winding me up like it did with the original Pi Zero so fuck it, let's cram a Pi 4 in.
 
 ## Other settings
 
@@ -202,6 +205,11 @@ https://www.waveshare.com/wiki/7.9inch_HDMI_LCD
 Battery life estimates (conservative too!:
 18650 x 1 (2500mah) = 2h 15m
 18650 x 3 (7500mah) = 6h 45m
+
+Mine are 20A maximum discharge.
+If they're in parallel, you get more mAh and current capability, as it's shared around.
+And anyway, 20A discharge? Fokk, it'll be nowhere near. I just need a nice chonky step-up.
+If it doesn't work, build a series one with BMS etc.
 
 ## Keyboard
 
