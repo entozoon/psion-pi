@@ -141,11 +141,11 @@ Powers happily from the touch USB input!!
 
 Has 5 Settings, long press on/off on screen:
 
--1 0.15A
--2 0.16A
--3 0.17A
--4 0.19A
--5 0.2A
+- 1 0.15A
+- 2 0.16A
+- 3 0.17A
+- 4 0.19A
+- 5 0.2A
 
 ## Fan Shim
 
