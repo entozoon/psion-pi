@@ -51,11 +51,9 @@ Notes about how I set everything up for reference, config files, microcontroller
 
 ## Setting up the Pi
 
-I had more problems with the Zero W than any other Pi, even sent one back. Probably just batch teething problems but anyway..
+Raspbian Stretch (2017-08-16) did **not** work, no matter what (with Pi Zeroes).
 
-Raspbian Stretch (2017-08-16) did **not** work, no matter what.
-
-Raspbian Jessie (2017-07-05) did though, but better yet..
+Raspbian Jessie (2017-07-05) did though, but more recently..
 
 Raspberry Pi OS Bullseye [(2021-11-08)](https://downloads.raspberrypi.org/raspios_lite_arm64/images/) is 64-bit(!)
 
