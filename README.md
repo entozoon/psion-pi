@@ -118,8 +118,8 @@ sudo raspi-config
 
 ### Rotate
 
-Set orientation (right) in raspbian preferences > screen configuration.
-This appears to have a bug where the settings don't persist after boot - it creates a file called dispsetup.sh but doesn't run after login, so:
+Set orientation (right) in raspbian `preferences > screen configuration`.
+This appears to have a bug where the settings don't persist after boot - it creates a file called dispsetup.sh but doesn't appear to run after login, at least on my current distro, so let's force it:
 
 ```bash
 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
