@@ -4,7 +4,7 @@ Personal electronics project; Attempting to build a modern PDA clamshell compute
 
 ![Knolling hard!](posterity/progress-1.jpg)
 
-4 years into this project, some significant changes, namely wide screen, HP Jornada keyboard and Pi Zero 2 W (significantly more capable.. the previous Zero put me off)
+4 years into this project, some significant changes, namely wide screen, LG Phenom keyboard and Pi Zero 2 W (significantly more capable.. the previous Zero put me off)
 
 ![4 years later..](posterity/progress-2.jpg)
 
@@ -44,7 +44,7 @@ KANBAN--->
 - Battery pack (18650 3S parallel 3.7v) - Home-made li-ion for the win!
 - Charging circuity and steps ups with protection - So I don't blow myself up.
 - Raspberry Pi
-- LG Phenom keyboard (previously Psion 5mx, prepreviously Dell Foldable) - What? No way! Yes way. **Yes frickin way**.
+- LG Phenom keyboard, or maybe Psion Netbook (previously Psion 5mx, prepreviously Dell Foldable) - What? No way! Yes way. **Yes frickin way**.
 - Keyboard USB interface - Arduino or ESP8266, hand-built.
 - 7.9" Capacitive Touchscreen LCD 1024\*600 (Waveshare C Rev2.1)
 - Mad efficient 1337 OS and warez, legit IDE, etc - We'll start with vanilla Raspbian first though.
