@@ -12,21 +12,17 @@ Personal electronics project; Attempting to build a modern PDA clamshell compute
 
 <!---KANBAN
 # To Do
-- Battery protected/stepped-up/hooked up
+- Battery build protected/stepped-up/hooked up
 - Battery level (physical or reported to Pi, ie. via lipo fuel gauge)
 - Case build
-- Keyboard interface
-- Port extensions
-- PCB design/etching as needed
-- Wireless charging if room
+- Keyboard scanning/emulation
+- Wireless charging if possible
 
 # In Progress
 - Power converters
-- Powered USB hub PCB
 
 # Done
 - Bootable Pi
-- Battery build
 - LCD screen
 - Touch screen
 - Figure power requirements
@@ -96,7 +92,9 @@ Any screen problems and it should still be SSH-able.
 
 ### Enable HDMI current and whatnot
 
-    sudo nano /boot/config.txt
+```bash
+sudo nano /boot/config.txt
+```
 
 ```bash
 # Add support for 7.9" Waveshare LCD
@@ -112,15 +110,20 @@ hdmi_timings=400 0 100 10 140 1280 10 20 20 2 0 0 0 60 0 43000000 3
 
 ### Disable compositor
 
-Run sudo raspi-config and set compositor to disabled.
-6 Advanced menu then A3
+```bash
+sudo raspi-config
+```
+
+6 Advanced menu then A3 and set Compositor to disabled.
 
 ### Rotate
 
 Set orientation (right) in raspbian preferences > screen configuration.
 This appears to have a bug where the settings don't persist after boot - it creates a file called dispsetup.sh but doesn't run after login, so:
 
+```bash
 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+```
 
 Append:
 
@@ -134,13 +137,15 @@ Automatic and orientated by long-pressing the 'rotate touch' button on the scree
 
 ## Brightness
 
-Powers happily from the touch USB input \*\*\*\*
-5 Settings, long press on/off on screen:
-1 0.15A
-2 0.16A
-3 0.17A
-4 0.19A
-5 0.2A
+Powers happily from the touch USB input!!
+
+Has 5 Settings, long press on/off on screen:
+
+-1 0.15A
+-2 0.16A
+-3 0.17A
+-4 0.19A
+-5 0.2A
 
 ## Fan Shim
 
@@ -166,13 +171,11 @@ over_voltage=4
 arm_freq=2000
 ```
 
-More steps involved:
-https://www.tomshardware.com/how-to/raspberry-pi-4-23-ghz-overclock
+More steps involved.. https://www.tomshardware.com/how-to/raspberry-pi-4-23-ghz-overclock
 
 ## Other settings
 
-Disable dimming, etc
-https://www.waveshare.com/wiki/7.9inch_HDMI_LCD
+Disable dimming, etc.. https://www.waveshare.com/wiki/7.9inch_HDMI_LCD
 
 ## Power Usage
 
@@ -189,7 +192,9 @@ https://www.waveshare.com/wiki/7.9inch_HDMI_LCD
 |                     Total | 1.2                   |
 
 Battery life estimates, according to my **[Super Useful Tool](https://battery-life.netlify.com/)**:
+
 18650 x 1 (2500mah) = ~1h
+
 18650 x 3 (7500mah) = ~3h
 
 Mine are 20A maximum discharge.
@@ -209,8 +214,9 @@ Disassembling it revealed it only has three IO:
 - 3.3V in
 - GND
 - Data out
+
   Hooking that all up to a USB FTDI (data => RX), reveals some useful output with the following settings (e.g. in RealTerm):
-  Port -> Baud: 4800
+  Port -> Baud: 4800,
   Display -> Display As: Hex
 
 ### Keymap
