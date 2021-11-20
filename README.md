@@ -4,7 +4,7 @@ Personal electronics project; Attempting to build a modern PDA clamshell compute
 
 ![Knolling hard!](posterity/progress-1.jpg)
 
-4 years into this project, some significant changes, namely wide screen, LG Phenom keyboard and Pi Zero 2 W (significantly more capable.. the previous Zero put me off)
+4 years into this project, some significant changes, namely wide screen, LG Phenom keyboard and Pi 4 (significantly more capable.. the previous Zero/Zero 2/3 all put me off)
 
 ![4 years later..](posterity/progress-2.jpg)
 
