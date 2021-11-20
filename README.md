@@ -30,20 +30,20 @@ KANBAN--->
 
 ## Aims
 
-- Tasty colour screen - For enjoyable video playback.
-- Quality keyboard - So it's legitimately useful.
-- Portability - I'm under no illusions that it'll be larger than a Psion 5mx/Jornada (as would be ideal) because of screen size and battery demands but if it's smaller than a Netbook Pro I'll be happy.
-- Sturdiness - Every single bit will be inherently fragile as heck, so I need to 3D print the structure real good.
+- Tasty colour screen - For enjoyable video playback
+- Quality keyboard - So it's legitimately useful
+- Portability - I'm under no illusions that it'll be larger than a Psion 5mx/Jornada (as would be ideal) because of screen size and battery demands but if it's smaller than a Netbook Pro I'll be happy
+- Sturdiness - Every single bit will be inherently fragile as heck, so I need to 3D print the structure real good
 
 ## Ingredients
 
 - Battery pack (18650 3S parallel 3.7v) - Home-made li-ion for the win!
-- Charging circuity and steps ups with protection - So I don't blow myself up.
+- Charging circuity and steps ups with protection - So I don't blow myself up
 - Raspberry Pi
-- LG Phenom keyboard, or maybe Psion Netbook (previously Psion 5mx, prepreviously Dell Foldable) - What? No way! Yes way. **Yes frickin way**.
-- Keyboard USB interface - Arduino or ESP8266, hand-built.
+- LG Phenom keyboard, or maybe Psion Netbook (previously Psion 5mx, prepreviously Dell Foldable) - What? No way! Yes way. **Yes frickin way**
+- Keyboard USB interface - Arduino or ESP8266, hand-built
 - 7.9" Capacitive Touchscreen LCD 1024\*600 (Waveshare C Rev2.1)
-- Mad efficient 1337 OS and warez, legit IDE, etc - We'll start with vanilla Raspbian first though.
+- Mad efficient 1337 OS and warez, legit IDE, etc - We'll start with vanilla Raspbian first though
 
 ## "Wait, so what's this repo even for then?"
 
